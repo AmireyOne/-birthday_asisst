@@ -1,0 +1,54 @@
+{% extends '_layout.html' %}
+
+
+
+
+{% block singup %} 
+		<form id="formsin" action="" class="mt-0" dir="rtl" method="post">
+			{% csrf_token %}
+			<h4 class="mb-4">عضوی از ما بشید</h4>
+			
+			
+			{% for item in form_singup %}
+				{{ item }}
+				
+
+			{% endfor %}	
+			<button class="mt-2 singups btns" type="submit">ثبت نام </button>
+            <div class="overlay-left ">
+                <h6  class="mt-4 " >از قبل عضو ما بودی؟</h6>
+				<button type="button" class="mt-1 " id="signIn" style="background-color: #333333;">ورود</button>
+			</div>
+		</form>
+{%endblock%}
+
+{% block login %} 
+		<form id="formlog" action="" class=" mt-4" dir="rtl" method="post" >
+			{% csrf_token %}
+			<h4>به صفحه ورود خوش آمدید</h4>
+			<div class="social-container">
+			
+			</div>
+			{% for item in form_login %}
+				{{ item }}
+				
+
+			{% endfor %}	
+
+			
+            <a href="forget_password">رمز عبورت یادت نیست؟</a>
+			<button type="submit" class="logins">ورود</button>
+            <div class="overlay-right ">
+                <h6  class="mt-4 text-question" >هنوز عضوی از ما نشدی؟</h6>
+				<button type="button" class="mt-1 mb-5 " id="signUp" style="background-color: #333333;">ثبت نام</button>
+			</div>
+
+		</form>
+
+
+
+	
+		  
+		
+{%endblock%}
+

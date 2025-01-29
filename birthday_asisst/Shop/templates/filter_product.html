@@ -1,0 +1,124 @@
+{% extends '_navbars.html' %}
+{% load static %}
+
+
+{% block style %}
+<link href="{% static 'css/css/filter_product.css' %}" rel="stylesheet" />
+ 
+{% endblock %}
+
+
+{% block main %}
+
+<div class="container container-custom">
+
+    {% if title == "همه محصولات" %}
+
+        <h1 style="text-shadow: 0px 0px 10px 2px red;"> ~ {{title}} ~</h1>
+    
+    {% else %}    
+
+        <h1 style="text-shadow: 0px 0px 10px 2px red;"> ~ محصولات مرتبط با {{title}} ~</h1>
+    
+    {% endif %}    
+    
+    <div class="row">
+        {% for item in products %}
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="box" dir="rtl">
+            <a class="link_pro" href="/shop/product/{{ item.id }}">
+              <div class="img-box" ">
+                <img style="border-radius: 15px;" src="{{ item.Img.url }}" alt="{{ item.product_name }}">
+              </div>
+              <div class="detail-box text-center" style="text-align: center;">
+                <h6 style="margin: 20px auto;">
+                  <b>~ {{item.Name_Product}} ~</b>
+                </h6>
+                
+              </div>
+              <br>
+              <div class="text-left">
+                <h6 style="justify-content: space-between; display: flex;">
+                  <div>
+                <span class="badge badge-danger mr-1 mb-1">{{item.Discount}}%</span>
+                  </div>
+                  <div>
+                <span style="color: white;">
+                  {{item.formatted_final_price}}
+                </span>
+                <b>تومان</b> 
+                </div>
+
+                
+                </h6>
+                
+                
+                </div>
+               
+                <del class="mr-auto" style="color: white; float: left ; margin-left: 40px; ">{{item.formatted_original_price}}</del>
+               
+                
+              
+             
+              <div class="new">
+                <span>
+                  <h5 style="color: red;" ><b>{{item.Discount}}%</b></h5>
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    
+
+
+
+    
+        
+        
+      
+
+    <!-- Pagination -->
+    <div style="margin: 20px auto;">
+        <span>صفحه {{ products.number }} از {{ products.paginator.num_pages }}</span>
+
+        <div>
+            <ul class="pagination pagination-lg justify-content-center m-4">
+                <!-- قبلی -->
+                {% if products.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ products.previous_page_number }}">قبلی</a>
+                    </li>
+                {% endif %}
+        
+                <!-- صفحات -->
+                {% for page in products.paginator.page_range %}
+                    {% if page == 1 or page == products.paginator.num_pages or page|add:'-3' <= products.number <= page|add:'3' %}
+                        {% if page == products.number %}
+                            <li class="page-item active"><a class="page-link" href="#">{{ page }}</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                        {% endif %}
+                    {% elif page == 2 or page == products.paginator.num_pages|add:'-1' %}
+                        <li class="page-item disabled"><span class="page-link">...</span></li>
+                    {% endif %}
+                {% endfor %}
+        
+                <!-- بعدی -->
+                {% if products.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ products.next_page_number }}">بعدی</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+{% endblock %}

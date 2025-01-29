@@ -1,0 +1,428 @@
+{% extends '_navbars.html' %}
+{% load static %}
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'css/css/product.css' %}">
+
+
+{% endblock %}
+
+
+
+{% block main %}
+
+
+<div class="containerv">
+    <div class="row">
+        <div class="col-6 text-right">
+             <div class="image">
+            <img src="{{ product.Img.url }}" alt="{{ product.product_name }}">
+            </div>
+        </div>
+        <div class="col-6 text-left ">
+            <div class="details text-center">
+            <h1 ><b>~ {{product.Name_Product}} ~</b></h1>
+
+
+
+            <div class="mt-5">
+
+               <h4> {{product.Caption}}</h4>
+            </div>
+           
+            <div class="price_div mt-5">
+                <span class="badge badge-danger p-2">{{product.Discount}}%</span>
+                <h5 style="margin-right: 40px"><b>{{final_price}}</b> تومان</h5>
+            </div>
+            <div dir="rtl" class="text-left">
+                
+                <h5 class="ml-5" style="color: #555;"><del><b>{{product.Price}}</b></del> </h5>
+            </div>
+
+            <button class="btn btn-success mt-5" data-toggle="modal" data-target="#AddBuyProduct"><img src="{% static 'img/sh.svg' %}" alt="shop" style="width: 20px; height: 20px;" > افزودن به سبد خرید</button>
+            {% if fave == False %}
+            <button class="btn btn-info mt-1 add-to-favorite" data-product-id="{{id}}" id="add-to-favorite"><img src="{% static 'img/favourite.png' %}" alt="shop" style="width: 20px; height: 20px;" > افزودن به علاقه مندی ها</button>
+            {% endif %}
+
+            {% if fave == True %}
+            <button class="btn btn-info mt-1 add-to-favorite" data-product-id="{{id}}" id="add-to-favorite">حذف از علاقه مندی ها</button>
+            {% endif %}
+          </div>
+        </div>
+    </div>
+          
+   
+</div>
+
+<div class="btn-group btn-group-lg btn-grop" >
+    <a href="#question" class="btn btn-outline-danger"  style="text-decoration: none; ">پرسش ها</a>
+    <a href="#comment" class="btn btn-outline-danger"  style="text-decoration: none; ">نظرات</a>
+    <a href="#product_Description" class="btn btn-outline-danger"  style="text-decoration: none; ">بررسی محصول</a>
+    
+</div>
+
+<hr style="border: 2px solid rgba(0, 0, 0, 0.489); position: relative ; top: 60px;">
+
+<div id="product_Description" class="containers" dir="rtl">
+    <h2>~ {{product.Name_Product}} ~</h2>
+    <br>
+    <h6 style="font-size: x-large; line-height: 4;">{{product.Description}}</h6>
+</div>
+
+<hr style="border: 2px solid rgba(0, 0, 0, 0.489); ">
+
+<h3 class="mt-5 mb-5 text-center" id="comment" data-id="{{id}}">نظرات محصول</h3>
+
+<div class=" text-center container-comment"  >
+
+  <div id="comments-container">
+
+
+  </div>
+
+  
+ 
+
+  <button class="btn btn-outline-danger mt-5 mb-4" data-toggle="modal" data-target="#AllComments">تمام کامنت ها</button>
+  <button class="btn btn-outline-primary mt-5 mb-4" data-toggle="modal" data-target="#AddComment"> افزودن کامنت</button>
+</div>
+
+
+
+<hr style="border: 2px solid rgba(0, 0, 0, 0.489); ">
+
+<h3 class="mt-5 text-center" id="question">پرسش های محصول</h3>
+<div class="row text-center mt-5">
+    <div class="col-10 cont" style="margin: 0 auto; ">
+        <div class="moving-container" style="overflow: hidden; position: relative; width: 100%;">
+            <div class="moving-items" style="display: inline-flex;">
+              {% for item in question %}
+              <div class="item" style="margin: 0 20px;">
+                <div class="card comment radios text-center" style="background-color: #fd12120b; border: none;">
+                  <div class="card-header radios text-right" style="background-color: #800505; color: white; border-radius: 20px 20px 0 0;">
+                    {{ item.name }}
+                  </div>
+                  <div class="card-body bod radios text-right" style="background-color: #c80000; color: white;">
+                    {{ item.question }}
+                    <br><br>
+                    {{ item.date }} : نوشته شده در
+                    <br>
+                    <div class="card-header mt-3" style="background-color: #c95656; box-shadow: 0px 0px 1px black; color: black; border-radius: 20px 20px 0 0;">
+                      جواب ادمین
+                    </div>
+                    <div class="card-body text-right" style="background-color: #c95656; box-shadow: 0px 0px 1px black; color: black; border-radius: 0 0 20px 20px;">
+                      {{ item.Answer }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          
+    </div>    
+
+</div>      
+    
+    
+   
+ 
+  
+ 
+<div class="more-comment text-center mt-5">
+  <button class="btn btn-outline-danger mb-5"  data-toggle="modal" data-target="#AllQuestion">همه پرسش ها</button>
+  <button class="btn btn-outline-primary mb-5"  data-toggle="modal" data-target="#AddQuestion"> افزودن پرسش </button>
+</div>
+
+
+
+
+
+
+
+<!-- مدال ها -->
+
+<!-- مدال افزودن کامنت -->
+<div class="modal" id="AddComment">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #6b5eff;">
+
+      <!-- Modal Header -->
+      <div class="modal-header modal-head-style">
+        <h4 class="modal-title text-light">افزودن کامنت</h4>
+        <button type="button" style="float: left; margin-left: 0;" class="close closes" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" dir="rtl">
+        <form action="" id="formAddComment">
+          {% csrf_token %}
+          {% for item in form %}
+          {{item.lable_tag}}
+          <br>
+          {{item}}
+          {% endfor %}
+
+          <input name="id-product" type="hidden" value={{id}}>
+
+        </form>
+        <div id="resualt-add-comment" style="margin: 0 auto; color: white; font-weight: bold; text-align: center;">
+
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer" style="margin: 0 auto;">
+        <button type="button " class="btn btn-danger" data-dismiss="modal">لغو</button>
+        <button type="button" id="send-comment-product" class="btn btn-success send-comment-product" >ثبت نظر</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- مدال تمام کامنت ها -->
+<div class="modal" id="AllComments">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: rgb(255, 39, 140);">
+
+      <!-- Modal Header -->
+      <div class="modal-header modal-head-style">
+        <h4 class="modal-title">همه کامنت ها</h4>
+        <button type="button" class="close closes" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body modal-body-scroll"  dir="rtl" style="overflow-y: scroll;">
+
+        <div class="contaner_allComment">
+          <div class="row">
+            {% for item in comment_list %}
+            <div class="col-12">
+              <div class="card allcomment radios text-center mt-3" style="background-color: rgba(252, 104, 104, 0.649); border-radius: 20px;">
+
+                <div class="card-header radios card-hader-comment text-right" style=" border-radius: 20px 20px 0 0; ">
+                  <b><i>{{ item.name }}</i></b>
+                </div>
+
+                <div class="card-body  text-right card-body-comment" >
+                  <b>{{ item.comment_title }}</b>
+                  <br><br>
+                  <p>{{item.comment_text}}</p>
+                  
+                </div>
+                
+
+                <div class="card-footer card-footer-comment d-flex " style="border-radius:0 0 20px 20px; justify-content: space-between;">
+                  <p class="mt-2 " style="align-self: center;" dir="ltr"> {{ item.date }} : نوشته شده در  </p>
+
+                  <div class="float-left" dir="rtl">
+                    <p class="mt-2">آیا این نظر مفید بود؟</p>
+                    <div class="d-flex justify-content-around">
+                    <a class="btn like-btn" data-comment-id="{{ item.ids }}" data-action="like">
+                      <img class="likes" style="width: 20px;" src="{% static 'img/like.png' %}" alt="like"> {{ item.likes|default:0 }}
+                    </a>
+                    <a class="btn dislike-btn" data-comment-id="{{ item.ids }}" data-action="dislike">
+                      <img class="dislikes" style="width: 20px;" src="{% static 'img/dis .png' %}" alt="dislike"> {{ item.dislikes|default:0 }}
+                    </a>
+                  </div>
+                  </div>
+                </div>
+
+
+
+
+                
+                
+                
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+<!-- مدال افزودن پرسش -->
+<div class="modal" id="AddQuestion">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: rgb(16, 107, 227);">
+
+      <!-- Modal Header -->
+      <div class="modal-header modal-head-style">
+        <h4 class="modal-title text-light">افزودن پرسش</h4>
+        <button type="button" class="close closes" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" dir="rtl">
+        <form action="" id="formAddquestion">
+          {% csrf_token %}
+          {% for item in formQ %}
+          {{item.lable_tag}}
+          <br>
+          {{item}}
+          {% endfor %}
+
+          <input name="id-product-question" type="hidden" value={{id}}>
+
+        </form>
+        <div id="resualt-add-question" style="margin: 0 auto; color: white; font-weight: bold; text-align: center;">
+
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer" style="margin: 0 auto;">
+        <button type="button " class="btn btn-danger" data-dismiss="modal">لغو</button>
+        <button type="button" class="btn btn-success" id="send-question-product">ثبت پرسش</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- مدال همه پرسش ها -->
+<div class="modal" id="AllQuestion">
+  <div class="modal-dialog">
+    <div class="modal-content"  style="background-color: rgb(255, 39, 140);">
+
+      <!-- Modal Header -->
+      <div class="modal-header modal-head-style">
+        <h4 class="modal-title">همه پرسش ها</h4>
+        <button type="button" class="close closes" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body modal-body-scroll" dir="rtl">
+        <div class="row">
+        {% for item in question %}
+        <div class="col-12 item">
+          <div class="card questions radios text-center " style="background-color: #fd12120b; border: none; margin: 10px auto;">
+            <div class="card-header radios text-right" style="background-color: #800505; color: white; border-radius: 20px 20px 0 0;">
+              <b><i>{{ item.name }}</i></b>
+            </div>
+            <div class="card-body radios text-right" dir="rtl" style="background-color: #c80000; color: white;">
+              <h6>{{ item.question }}</h6>
+              <br><br>
+               <p dir="ltr" > {{ item.date }} : نوشته شده در  </p>
+              <br>
+              <div class="card-header mt-3" style="background-color: #c95656; box-shadow: 0px 0px 1px black; color: black; border-radius: 20px 20px 0 0;">
+                <h5>جواب ادمین</h5>
+              </div>
+              <div class="card-body text-right" style="background-color: #c95656; box-shadow: 0px 0px 1px black; color: black; border-radius: 0 0 20px 20px;">
+                <p>{{ item.Answer }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- مدال برای افزودن به سبد خرید -->
+<div class="modal fade" id="AddBuyProduct">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #00ffff;">
+
+      <!-- Modal Header -->
+      <div class="modal-header modal-head-style">
+        <h4 class="modal-title">افزودن به سبد خرید</h4>
+        <button type="button" class="close closes" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" dir="rtl">
+        <div class="row">
+          <div class=" col-md-4 img-Buy">
+            <img src="{{ product.Img.url }}" alt="{{ product.product_name }}">
+          </div>
+
+          <div class=" col-md-8 product-Buy text-center">
+            <h3 ><b>~ {{product.Name_Product}} ~</b></h3>
+            <div dir="rtl" class="d-flex justify-content-between mt-5">
+              
+              <span class="badge badge-danger p-2">{{product.Discount}}%</span>
+              <h5  ><b id="final_price">{{final_price}}</b> تومان</h5> 
+            </div>
+            <h5 class="text-left ml-5" style="color: #555;"><del><b>{{product.Price}}</b></del> </h5>
+
+          </div>
+
+        </div>
+            <div dir="rtl" class="text-center">
+              <form id="cartform" action="" class="mt-4" >
+                {% csrf_token %}
+                <label for="price-product" class="text-right mt-3"><h6>پیام همراه با محصول :</h6></label><input type="text" value="بدون پیام"  name="message-product" required  class=" form-control text-center">
+                <label for="num-product" class="text-right mt-3"><h6>تعداد محصول :</h6></label><input id="number_pro" type="number" min="1" step="1" value="1" name="num-product" required class="num-product form-control text-center">
+                <label for="price-product" class="text-right mt-3"><h6>قیمت محصول :</h6></label><input type="text"  name="price-product" required readonly class="price-product form-control text-center">
+                
+                <input type="text" name="product_id" style="display: none;" value="{{id}}">
+              </form>
+
+          </div>
+      </div>
+
+
+      <!-- Modal footer -->
+      <div class="modal-footer " style="margin: 0 auto;">
+        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">لغو</button>
+        <button type="button" id="add-cart" class="btn btn-outline-success" >افزودن به سبد خرید</button>
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>  
+
+ 
+
+
+
+
+
+
+
+{% endblock %}
+
+
+{% block script %}
+
+<script src="{% static 'js/js/product.js' %}"></script>
+<script>
+      // گرفتن قیمت محصول از عنصر HTML
+    const finalPriceElement = document.querySelector('#final_price');
+    const pricePerUnit = parseInt(finalPriceElement.textContent.replace(/,/g, '').trim()) || 0;
+
+    // عناصر HTML
+    const quantityInput = document.querySelector('#number_pro');
+    const priceInput = document.querySelector('.price-product');
+
+    // تابع برای محاسبه قیمت کل
+    function updateTotalPrice() {
+        const quantity = parseInt(quantityInput.value) || 1; // مقدار تعداد
+        const totalPrice = quantity * pricePerUnit; // محاسبه قیمت کل
+        priceInput.value = totalPrice.toLocaleString('fa-IR', { useGrouping: true }) + ' تومان'; // اضافه کردن "تومان"
+    }
+
+    // رویداد برای تغییر مقدار تعداد
+    quantityInput.addEventListener('input', updateTotalPrice);
+
+    // مقدار اولیه محاسبه
+    updateTotalPrice();
+</script>
+
+{% endblock %}

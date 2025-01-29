@@ -1,0 +1,161 @@
+@font-face {
+  font-family: 'MaktabRita';
+  src: url('/static/fonts/MaktabRita-Regular.woff2') format('woff2'),
+       url('/static/fonts/MaktabRita-Regular.woff') format('woff'),
+       url('/static/fonts/MaktabRita-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mj_Ramollah_0';
+  src: 
+       url('/static/fonts/Mj_Ramollah_0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Far_Classic';
+  src: 
+       url('/static/fonts/Far_Classic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+
+
+
+
+.navbars{
+    background:linear-gradient(90deg , #FF3B3F , #e20b6c)
+   
+}
+.optionss{
+    color: rgb(0, 0, 0);
+    font-family: 'Far_Classic';
+    font-size: x-large !important;
+
+}
+
+
+
+
+
+.logo-nav{
+    margin-top:  10px;
+    font-family: 'Mj_Ramollah_0';
+    font-size:revert !important; 
+    color: white;
+    
+  
+}
+.img-brand{
+    
+    margin-bottom: 7px;
+}
+.login_register_icon{
+    width: 35px; 
+    height: 35px;
+    margin-left: 20px;
+    
+}
+.body-main{
+    background-color: #FF3B3F;
+}
+/* تنظیمات منوی کشویی */
+
+.offcanvas-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -250px;
+    width: 250px;
+    background-color: #ee4a78; /* پس‌زمینه زرد */
+    z-index: 1050;
+    transition: right 0.3s ease;
+    padding-top: 60px;
+  }
+  
+  .offcanvas-menu.show {
+    right: 0;
+  }
+  
+  .offcanvas-menu .nav-link {
+    color: black !important; /* رنگ مشکی برای لینک‌های منوی کشویی */    
+    text-decoration: none;
+    font-family: 'MyFontsc';
+    
+  }
+  
+  
+  
+
+  .card-red{
+    background-color: #FF3B3F;
+    border: none;
+  }
+  .footer-page{
+    width: 100%;
+    min-height: 336px;
+    background-color: #FF3B3F;
+    text-align: right;
+    
+  }
+  .kkk{
+    font-family: 'Far_Classic' ;
+    font-size: 30px;
+  }
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.navbar-toggler {
+    outline: none;
+}
+.icons a {
+    margin-left: 10px;
+    font-size: 20px;
+    color: #333;
+}
+.icons a:hover {
+    color: #007bff;
+}
+@media (max-width: 768px) {
+    .logo {
+        display: none;
+    }
+}  
+  
+.drop-customs{
+  background:linear-gradient(45deg , rgb(237, 31, 172) ,rgb(169, 10, 10)) !important;
+  border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+}  
+
+@media (max-width: 995px) {
+  .logo {
+      display: none;
+  }
+  .navbars{
+    direction: ltr !important;
+  }
+  .ico{
+    direction: rtl !important;
+  }
+}  

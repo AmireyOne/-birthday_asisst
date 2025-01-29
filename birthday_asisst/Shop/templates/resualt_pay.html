@@ -1,0 +1,67 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وضعیت پرداخت</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/css/resualt_pay.css' %}">
+    
+</head>
+<body style="background-color: rgb(44, 245, 208);">
+
+    <div class="container text-center" dir="rtl">
+        <div class="content mt-5 " >
+            
+        <h1 class="text-light infos">{{message}}</h1>
+        <div class="mt-4">
+            <table style="margin: 0 auto;">
+                <tr>
+                    <th class="p-3 text-right text-light infos">شماره کارت مبدا :</th>
+                    <td class="p-3 text-left text-light infos">{{card_pan}}</td>
+                </tr>
+                <tr>
+                    <th class="p-3 text-right text-light infos">مبلغ :</th>
+                    <td class="p-3 text-left text-light infos">   تومان {{price}}</td>
+                </tr>
+                <tr>
+                    <th class="p-3 text-right text-light infos">کد تراکنش :</th>
+                    <td class="p-3 text-left text-light infos">{{ref_id}}</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+
+        <p class="mt-4" id="timer">بازگشت به صفحه اصلی سایت در  <span id="seconds">10</span> ثانیه</p>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        // مقدار ثانیه‌های شمارش معکوس
+        let countdown = 10;
+
+        // به روزرسانی متن تایمر
+        const timerElement = document.getElementById("seconds");
+
+        // تابع شمارش معکوس
+        const timer = setInterval(() => {
+            // کاهش مقدار شمارش
+            countdown--;
+
+            // به‌روزرسانی نمایش ثانیه‌ها
+            timerElement.textContent = countdown;
+
+            // وقتی به 0 رسید، انتقال به صفحه اصلی
+            if (countdown <= 0) {
+                clearInterval(timer); // توقف تایمر
+                window.location.href = "/"; // هدایت به صفحه اصلی
+            }
+        }, 1000);
+
+    </script>
+</body>
+</html>

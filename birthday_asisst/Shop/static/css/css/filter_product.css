@@ -1,0 +1,122 @@
+.container-custom {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.box {
+    background-color: #ff6c6c;
+    position: relative;
+    padding: 10px;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    /*انتقالصافونرم*/
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    -webkit-transition: all 0.3s ease;
+    height: 370px;
+}
+
+.box:hover {
+
+    transform: translateY(-10px);
+    /* حرکت به بالا */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    /* سایه زیر باکس */
+}
+
+.box a {
+    color: #000000;
+}
+
+.box .img-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 15px 30px;
+    height: 180px;
+}
+
+.box .img-box img {
+    max-width: 100%;
+    max-height: 145px;
+}
+
+
+.img-box {
+    display: flex;
+    justify-content: center;
+    padding: 45px;
+}
+
+.img-box img {
+    width: 275px;
+}
+
+
+
+.detail-box h1 {
+    color: #000000;
+    font-weight: bold;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.detail-box a {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #db4566;
+    color: #ffffff;
+    border: 1px solid #db4566;
+    border-radius: 5px;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    margin-top: 25px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    text-decoration: none;
+}
+
+.detail-box a:hover {
+    background-color: transparent;
+    color: #db4566;
+    text-decoration: none;
+}
+.link_pro:hover{
+    text-decoration: none;
+}
+
+
+.new {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ffffff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 100%;
+    font-size: 15px;
+}

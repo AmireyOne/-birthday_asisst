@@ -1,0 +1,135 @@
+.container-custom{
+
+margin-top: 100px;
+direction: rtl;
+max-width: 900px !important;
+}
+.product-in-cart{
+ background:linear-gradient(90deg , #730505 , #D90909);
+ border-radius: 20px;
+ -webkit-border-radius: 20px;
+ -moz-border-radius: 20px;
+ -ms-border-radius: 20px;
+ -o-border-radius: 20px;
+ box-shadow: 0px 0px 20px 5px rgb(255, 88, 88);
+}
+.img-cart{
+padding: 20px;
+
+
+
+
+}
+.imgs-cart{
+    max-width: 250px;
+}
+.img-img-cart{
+ width: 100%;
+ margin-right: 20px;
+ border-radius: 20px;
+ -webkit-border-radius: 20px;
+ -moz-border-radius: 20px;
+ -ms-border-radius: 20px;
+ -o-border-radius: 20px;
+}
+.contant-cart{
+
+
+}
+.contant{
+
+
+}
+.info {
+    border-radius: 13px !important;
+   
+}
+
+.info:hover {
+    transition: transform 0.4s ease;
+    transform: translateY(-5px);
+   
+}
+.info-info{
+    box-shadow: 0px 0px 20px rgb(43, 0, 255);
+}
+.info-continue{
+    box-shadow: 0px 0px 20px rgb(30, 255, 0);
+}
+.info-delete{
+    box-shadow: 0px 0px 20px rgb(255, 0, 0);
+}
+.line{
+    margin-bottom: 30px;
+    border: 1px solid black;
+}
+
+
+.new-product .card{
+    background-color: #FbA5A5;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.new-product{
+    margin-bottom: 50px;
+}
+.box{
+    text-decoration: none !important;
+    padding: 10px;
+    min-width: 200px;
+    background-color:#ab0000 ;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 10px 2px rgb(14, 13, 13);
+}
+.links{
+    
+    color: white;
+    text-decoration: none;
+}
+.links:hover{
+     color: white;
+    text-decoration: none;
+}
+.products{
+    overflow-x: scroll;
+}
+.products::-webkit-scrollbar {
+    width: 20px; /* عرض اسکرول */
+}
+.products::-webkit-scrollbar-track {
+    background: #D90909;
+    border-radius: 0px 0px 5px 5px;
+    -webkit-border-radius: 0px 0px 5px 5px;
+    -moz-border-radius: 0px 0px 5px 5px;
+    -ms-border-radius: 0px 0px 5px 5px;
+    -o-border-radius: 0px 0px 5px 5px;
+}
+.products::-webkit-scrollbar-thumb {
+    background: #6a2b2b; /* رنگ دستگیره */
+    border-radius: 5px;
+}
+
+@media (max-width: 568px){
+    .txtsabad{
+        font-size: small;
+    }
+
+    .imgsabad{
+        max-width: 250px ;
+    }
+    
+}
+.th-info{
+    padding: 20px;
+}
+.modal-custom{
+    
+    background: linear-gradient(25deg, #a89595, #ff0000);
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px 3px #ffffff;
+    border: none;
+    
+}

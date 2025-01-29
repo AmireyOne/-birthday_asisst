@@ -1,0 +1,219 @@
+.container-panel{
+    margin-top: 100px !important;
+    padding-bottom: 30px !important;
+    margin-bottom: 40px !important;
+}
+
+
+
+.information{
+    
+    width: 100%;
+    min-width: 250px;
+    height: 150px;
+    background-color: rgb(0, 5, 105);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 53);
+    
+
+}
+.content{
+    
+}
+.content-body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(152, 154, 237);
+    margin-top: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-bottom: 10px;
+} 
+.list-item{
+    
+    border:3px solid #1f024f;
+}
+
+
+
+.img-person{
+    width: 80;
+    height: 80;
+    background-color: azure;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    right: 30px;
+    top: 32px;
+}
+.name-persone{
+    color: white;
+    margin: 50px auto;
+    position: absolute;
+    
+    
+}
+.email-content{
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+.email-text{
+    color: white;
+    position: absolute;
+    left: 30px;
+    top: 70px;
+}
+.comment-number-content{
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+}
+.list-group-item{
+    background-color: blueviolet;
+    border: none;
+    
+}
+.item-list{
+    color:  rgb(0, 5, 105);
+    list-style-type:none;
+    padding-top: 40px;
+}
+.list-item-row{
+   margin: 0 10px;
+   box-shadow: 0px 0px 10px blue;
+}
+
+.birt{
+    width: 500px;
+    height: 80%;
+}
+.file-input-wrapper {
+    display: inline-block;
+    position: relative;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.file-input {
+    display: none; /* مخفی کردن ورودی فایل */
+}
+  
+.file-label {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+  
+.file-label:hover {
+    background-color: #0056b3;
+}
+  
+.file-name {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+.clear-file-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+.clear-file-btn:hover {
+    background-color: #a71d2a;
+  }
+  
+  .line-with-text {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.line-with-text::before,
+.line-with-text::after {
+    content: '';
+    flex: 1;
+    border-bottom: 2px solid #7b6bf6;
+    margin: 0 10px;
+}
+
+.line-with-text span {
+    white-space: nowrap; /* جلوگیری از شکستن متن */
+    font-size: 1.2em;
+    color: #1f024f;
+}
+
+
+.box {
+    background-color: #021150;
+    position: relative;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    height: 310px;
+    margin-top: 20px;
+  
+}
+.boxs{
+    
+    background-color: #020e3e;
+    position: relative;
+    padding: 30px;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    height: 280px;
+    margin-top: 20px;
+}
+.img-box img{
+    max-width: 100%;
+    max-height: 145px;
+}
+.inputs{
+    border: 2px solid #020e3e;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    width: 100%;
+    height: 60px;
+}
+#input_message{
+    height: 200px;
+    margin-top: 15px;
+}
+.btn_send{
+    background-color:#020e3e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+.btn_send:hover{
+    background-color: #01356c;
+    color: white;
+}

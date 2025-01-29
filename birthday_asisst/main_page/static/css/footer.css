@@ -1,0 +1,62 @@
+.footer-section {
+    background-color: #FF3B3F;
+    padding: 20px 0;
+    border-top: 2px solid #ddd;
+  }
+  
+.footer-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+.footer-col {
+    flex: 1;
+    max-width: 300px;
+    min-width: 250px;
+  }
+  
+  /* استایل کارت‌ها */
+.footer-card {
+    background-color: #FF3B3F;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    color: black;
+  }
+.red-color {
+  background-color: #FF3B3F !important;
+  border: none !important;
+}  
+  
+.footer-card-header {
+    background-color: #FF3B3F;
+    color: black;
+    font-size: 1.2rem;
+    border: none;
+    margin-bottom: 10px;
+  }
+  
+.footer-card-body {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  /* استایل لینک‌ها */
+.footer-link {
+    text-decoration: none;
+    color: black;
+    transition: color 0.3s ease;
+  }
+  
+.footer-link:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* استایل لیست */
+.footer-list {
+    padding: 0;
+    list-style: none;
+  }
