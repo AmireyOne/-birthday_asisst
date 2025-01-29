@@ -1,0 +1,112 @@
+.container-panel{
+    margin-top: 100px !important;
+    padding-bottom: 30px !important;
+    margin-bottom: 40px !important;
+}
+.row-cont{
+    height: 100%;
+}
+
+
+.information{
+    
+    width: 100%;
+    min-width: 250px;
+    height: 150px;
+    background-color: rgb(0, 5, 105);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 10px 20px rgb(0, 0, 53);
+    
+
+}
+.content{
+    height: 75%;
+}
+.content-body{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(152, 154, 237);
+    margin-top: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    margin-bottom: 10px;
+} 
+.list-item{
+    overflow-y: scroll;
+}
+.list-item::-webkit-scrollbar {
+    width: 20px; /* عرض اسکرول */
+}
+.list-item::-webkit-scrollbar-track {
+    background: #200850; /* رنگ پس‌زمینه مسیر اسکرول */
+    border-radius: 5px;
+}
+.list-item::-webkit-scrollbar-thumb {
+    background: #5828e8; /* رنگ دستگیره */
+    border-radius: 5px;
+}
+.img-person{
+    width: 80;
+    height: 80;
+    background-color: azure;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    position: absolute;
+    right: 30px;
+    top: 32px;
+}
+.name-persone{
+    color: white;
+    margin-top: 50px;
+    position: absolute;
+    left: 40px;
+    
+}
+.email-content{
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+.email-text{
+    color: white;
+    position: absolute;
+    left: 30px;
+    top: 70px;
+}
+.comment-number-content{
+    color: white;
+    position: absolute;
+    right: 30px;
+    top: 50px;
+}
+.list-group-item{
+    background-color: blueviolet;
+    border: none;
+    
+}
+.item-list{
+    color:  rgb(0, 5, 105);
+    list-style-type:square;
+    padding-top: 40px;
+}
+.list-item-row{
+    color:  rgb(0, 5, 105);
+    text-decoration: none;
+}
+.list-item-row:hover{
+    color: rgb(236, 227, 210);
+    text-decoration: none;
+    cursor: pointer;
+}

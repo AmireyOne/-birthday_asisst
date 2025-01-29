@@ -1,0 +1,220 @@
+{% load static %}
+<html lang="en">
+<head>
+  <title>Responsive Navbar</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+  <link rel="stylesheet" href="{% static 'css/style_nav.css' %}">
+  <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+  {% block style %}
+  
+  {% endblock %}
+</head>
+
+
+<body style="background-color: antiquewhite;">
+<header>  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top navbars" dir="rtl" >
+    <!-- لینک‌های سمت راست -->
+    <div class="collapse navbar-collapse " id="navbarNav">
+        <ul class="navbar-nav ">
+            <li class="nav-item"> <a class="nav-link optionss active text-center" href="/panel">پنل کاربری</a></li>
+            <li class="nav-item"> <a class="nav-link optionss active text-center" href="/shop/shop_page">فروشگاه</a></li>
+            <li class="nav-item"> <a class="nav-link optionss active text-center" href="/reminder/reminder_page">یادآور</a></li>
+            
+            <li class="nav-item dropdown text-center">
+              <a class="nav-link optionss active dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                امکانات
+              </a>
+              <div class="dropdown-menu drop-customs text-center"   >
+                <a class="dropdown-item optionss" href="#">نظرات</a>
+                <a class="dropdown-item optionss" href="#">ایده سوپرایز</a>
+                <a class="dropdown-item optionss" href="#">مبدل تاریخ</a>
+                <a class="dropdown-item optionss" href="#">تولد جهانی</a>
+              </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- لوگو وسط -->
+    <div class="logo">
+      
+      <a href="/"><h1 class="navbar-brand ml-auto logo-nav">تولد یار</h1></a>
+    </div>
+
+    <!-- آیکون‌های سمت چپ -->
+    <div class="icons ico d-flex justify-content-around">
+      {% if user.State == True %}
+      <i class=""> <h5 class="ml-2 kkk">{{ user.User.first_name }}</h5></i>
+        <a href="#" class="logout" data-toggle="modal" data-target="#myModallogout">
+          <i class=" "> <img src="{% static 'img/loguot.png' %}" alt="ثبت نام"  title="خروج از خساب"  class="login_register_icon mb-2"></i>
+        </a>
+        
+      {% endif %}  
+
+      {% if user.State == False %}
+      <i class=""> <h5 class="ml-2 kkk">مهمان</h5></i>
+      <a href="/auth" class="logout" >
+        <i class=""> <img src="{% static 'img/register_icon.png' %}"alt="ثبت نام"  title="ورود / ثبت نام"  class="login_register_icon mb-2"></i>
+      </a>
+      
+    {% endif %}  
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- دکمه ناوبری موبایل -->
+    <button  class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+</header>
+
+
+
+
+
+<div class="modal" id="myModallogout">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+
+        <button type="button" style=" margin: -1rem -1rem -1rem !important;" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title color-danger">خروج از حساب</h4>
+        
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body text-right" >
+        آیا میخواهید از حساب خود خارج شوید؟
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer " style="margin: 0 auto;">
+
+        <button type="button" class="btn btn-info ml-1 " data-dismiss="modal">لغو</button>
+        <a href="/Logout" type="button" class="btn btn-danger" style="color: white;" >خروج</a>
+       
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- منوی کشویی برای موبایل -->
+<div class="offcanvas-menu" id="offcanvasMenu">
+  <ul class="navbar-nav p-3">
+    <li class="nav-item">
+      <a class="nav-link optionss" href="#"><b>خانه</b></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link optionss" href="#">ویژگی ها</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link optionss" href="/">نظرات</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+{% block main %}
+{% endblock %}
+
+
+
+
+<footer class="footer-section">
+  <div class="footer-page">
+    <div class="row footer-row">
+      <!-- ستون اول -->
+      <div class="col footer-col footer-links">
+        <div class="card footer-card red-color">
+          <div class="card-header footer-card-header red-color text-center">
+            <h3>: لینک ها</h3>
+          </div>
+          <div class="card-body footer-card-body red-color text-center">
+            <ul class="list-group footer-list" dir="rtl">
+              <li><a href="/" class="footer-link red-color">صفحه اصلی</a></li>
+              <li><a href="/auth" class="footer-link red-color">ثبت نام</a></li>
+              <li><a href="/shop/shop_page" class="footer-link red-color">فروشگاه کادو</a></li>
+              <li><a href="/reminder/reminder_page" class="footer-link red-color">یادآور</a></li>
+              <li><a href="#" class="footer-link red-color">مطالب خواندنی</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ستون دوم -->
+      <div class="col footer-col footer-address">
+        <div class="card footer-card red-color">
+          <div class="card-header footer-card-header red-color text-center">
+            <h3>: آدرس</h3>
+          </div>
+          <div class="card-body footer-card-body red-color text-center">
+            <p>یزد، میدان خاتمی، کوچه طلاب</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ستون سوم -->
+      <div class="col footer-col footer-contact">
+        <div class="card footer-card red-color">
+          <div class="card-header footer-card-header red-color text-center">
+            <h3>: ارتباط با ما</h3>
+          </div>
+          <div class="card-body footer-card-body red-color text-center">
+            <a href="mailto:amireyone@gmail.com" class="footer-link red-color">amireyone@gmail.com</a>
+            <img src="{% static 'img/email.png' %}" alt="ایمیل" class="footer-icon ml-2"><br>
+            <a href="https://t.me/+989035404612" class="footer-link red-color">@amireyone10</a>
+            <img src="{% static 'img/telegram_icon.png' %}" alt="تلگرام" class="footer-icon ml-2"><br>
+            <a href="https://wa.me/989104057136" class="footer-link red-color">Whatsapp message</a>
+            <img src="{% static 'img/whatsapp-logo.png' %}" alt="واتساپ" class="footer-icon ml-2"><br>
+            <a href="tel:+989104057136" class="footer-link red-color">09104057136</a>
+            <img src="{% static 'img/mobilephone.png' %}" alt="تلفن" class="footer-icon ml-2">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/nav_script.js' %}"></script>
+
+
+{% block script %}
+
+{% endblock %}
+
+
+
+
+</body>
+</html>

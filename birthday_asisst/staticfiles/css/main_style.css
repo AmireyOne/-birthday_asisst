@@ -1,0 +1,162 @@
+
+
+.img-bg {
+    position: relative;
+	width: 100%;
+    height: 50vh;
+    background-image: url('/static/img/birth.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.img-bg::before {
+    content: '';  /* محتوای خالی برای ایجاد لایه */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(225deg ,  rgba(225, 7, 7, 0.533) ,  rgba(244, 0, 171, 0.654))  ;/* رنگ سیاه نیمه‌شفاف */
+    /* می‌توانید رنگ و شفافیت را تغییر دهید */
+    z-index: 1;  /* لایه‌ی هاله در بالای تصویر */
+    text-align: center;
+}
+.h1{
+    font-family: 'Mfar';
+}
+.font_h1{
+    font-family: Mfarv  !important;
+    color: #ffffff;
+    z-index: 2; 
+    position: absolute;
+    right:  0;
+    left: 0;
+}
+.font_h2{
+    font-family: 'Mfar' , sans-serif;
+    color: #ffffff;
+    z-index: 2; 
+    position: absolute;
+    right:  0;
+    left: 0;
+    bottom: 80;
+}
+.cards-style{
+    background-color: #E3F2FD !important;
+    text-align: center;
+    border: none !important;
+    margin-left: 10%;
+    margin: 20px;
+    box-shadow: 0px 10px 20px rgba(219, 7, 7, 0.814);
+}
+.cards-text-styles{
+    background-color: antiquewhite !important;
+    text-align: center;
+    border:none !important;
+    font-size: xx-large;
+    
+}
+.img-style{
+    height: 200px !important;
+    width: 60% !important;
+}
+/* استایل عمومی برای جومباترون */
+.custom-jumbotron {
+    margin-top: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* عرض کامل */
+    padding: 2rem 1rem; /* فضای داخلی تنظیم‌شده */
+  }
+  
+  .font_h1, .font_h2 {
+    margin: 0.5rem 0; /* حفظ فاصله بین عناوین */
+  }
+  
+  /* تنظیمات برای حالت موبایل */
+  @media (max-width: 576px) {
+    .custom-jumbotron {
+      width: 100%; /* فیکس شدن عرض صفحه در حالت موبایل */
+      padding: 1.5rem 1rem; /* تنظیمات فضای داخلی در موبایل */
+    }
+  }
+  .census{
+    width: 100%;
+    min-height: 300px;
+    background: linear-gradient(45deg ,  rgb(188, 0, 0), rgb(185, 1, 149)  , rgb(180, 0, 0));
+    margin-bottom: 20px;
+  }
+  .number-census{
+    width: 150px;
+    height: 150px;
+    background-color: rgb(253, 0, 160);
+    color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    box-shadow: 0px 0px 20px black;
+}
+
+/* استایل های بخش کامنت */
+.tm-section-pad-top {
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.tm-testimonials-content {
+    position: relative;
+    z-index: 100;
+    background-color: rgb(255, 5, 130);
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    -ms-border-radius: 40px;
+    -o-border-radius: 40px;
+    box-shadow: 0px 0px 10px black;
+}
+.tm-content-box {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+.tm-section-title {
+    font-size: 2.6rem;
+    font-weight: normal;
+}
+.tm-section-desc {
+    max-width: 650px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+   
+
+.top-comment{
+    max-width: 250px;
+    min-height: 250px;
+    max-height: 250px;
+    background:linear-gradient(135deg , rgb(234, 41, 234) , rgb(225, 171, 208));
+    margin-left: 5px;
+    overflow-y:auto ;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    box-shadow: 0px 0px 20px rgb(73, 0, 53);
+}
+.comment-text{
+    color: rgb(1, 1, 34);
+    min-height: 152px;
+}
+.color-bg-comment{
+    background: linear-gradient(135deg , rgb(234, 41, 234) , rgb(225, 171, 208)) !important;
+}.close-btn{
+    margin: -1rem -1rem -1rem !important;
+}

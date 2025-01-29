@@ -1,0 +1,423 @@
+{% extends '_navbars.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/css/persian-datepicker.min.css">
+<link rel="stylesheet" href="{% static 'css/panel.css' %}">
+
+ 
+{% endblock %}
+
+{% block if_true %}
+<a href="" class="logout" data-toggle="modal" data-target="#myModallogout">
+  <img src="{% static 'img/loguot.png' %}" alt="ثبت نام"  title="خروج از خساب"  class="login_register_icon mb-2">
+</a>
+<h5 class="ml-2">{{ user }}</h5>
+{% endblock %}
+
+{% block main %}
+
+<div class="container container-panel" dir="rtl">
+
+<!-- مشخصات بالا -->
+
+   <div class="infor" >
+    <div class="row">
+        <div class="col-12 col-md-4 mb-3 ">
+            <div class="information comment-number d-flex justify-content-center">
+                
+                    
+                    <div class=" name-persone text-center">
+                        <h3><b> {{ username }}</b></h3>
+                    </div>
+                   </div>
+           
+        </div>
+        <div class="col-12 col-md-4 mb-3 ">
+            <div class="information comment-number">
+                <div class="email-content" >
+                    <h4>ایمیل شما :</h4>
+                </div>
+                <div class="email-text">
+                    <h5><b>{{info.Email}}</b></h5>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-12 col-md-4 mb-3">
+            <div class="information comment-number">
+
+                <div class="comment-number-content">
+                    <h3><b>تعداد کامنت های شما : {{comm}}</b></h3>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+   </div>
+
+
+
+<!-- لینک های صفحه  -->
+
+    <div class="content">
+     
+      
+               <div class="row text-center d-flex justify-content-around ">
+                
+                    <ul class="text-right d-flex flex-wrap p-0" dir="rtl" >
+                        <li class="item-list">                        
+                          <a class="list-item-row btn btn-outline-primary information-click" href="#infor"><h3><b>اطلاعات کاربری</b></h3></a>
+
+                        </li>
+
+                        <li class="item-list">
+                            <a class="list-item-row btn btn-outline-primary adress-click" href="#infor"><h3><b> آدرس ها </b></h3></a>
+                        </li>
+
+                        <li class="item-list">
+                            <a class="list-item-row btn btn-outline-primary" href="#faverit"><h3><b>علاقه مندی ها </b></h3></a>
+                        </li>
+
+             
+                        <li class="item-list">
+                            <a class="list-item-row btn btn-outline-primary" href="#pay"><h3><b>پرداختی ها</b></h3></a>
+                        </li>
+
+                        <li class="item-list">
+                            <a class="list-item-row btn btn-outline-primary" href="#manage"><h3><b>ارتباط با مدیریت</b></h3></a>
+                        </li>
+                    </ul>
+              
+              </div>
+<!-- اطلاعات کاربری و آدرس-->
+
+
+              <div class="d-flex row mt-5 " id="infor">
+                <div class="line-with-text col-6" >
+                  <span> <h4>اطلاعات کاربری</h4></span>
+                  
+                </div>
+                <div class="line-with-text col-6">
+                  <span> <h4>آدرس ها</h4></span>
+                  
+                </div>
+        
+              </div>
+
+          </div>
+          <div class="row ">
+            <div class="col-md-6 ">
+                <div class="content-item content-body text-center p-5 list-item" style="position: relative;  " >
+                  {% if info_bool == False %} 
+                  <form action="" id="information" class="form-info text-center" method="post" >
+                    {% csrf_token %}
+                    <div id="panel_work">
+                      <label for="phone"><b> تلفن همراه : </b></label>
+                      <input type="tel" class="mb-4 text-center form-control" id="phone" name="phone" placeholder="09123456789" pattern="^09[0-9]{9}$" required>
+                      <br>
+                      <label for="email"><b>ایمیل :</b></label>
+                      <input type="email" class="mb-4 text-center form-control" id="email" name="email" placeholder="لطفا ایمیل خود را وارد کنید" required >
+                      <br>
+                      <label for="birthday"><b>تاریخ تولد :</b></label>
+                      <input type="text" name="birthday" class="form-control text-center" id="time" placeholder="انتخاب تاریخ" required>
+            
+                      <div id="resualt" class="mt-4"></div>
+            
+                      <div class="text-center">
+                          <button type="button" class="btn btn-success mt-5 send-info" id="send-info">ثبت اطلاعات</button>
+                      </div>
+                       
+                    </div>
+                  </form>
+                  {% endif %}
+
+                  
+                  {% if info_bool == True %} 
+                  <form action="" id="information" class="form-info text-center" method="post" >
+                    {% csrf_token %}
+                    <div id="panel_work">
+                      <label for="phone"><b> تلفن همراه : </b></label>
+                      <input type="tel" class="mb-4 text-center form-control" id="phone" name="phone" placeholder="09123456789" pattern="^09[0-9]{9}$" required value="{{info.Phone}}" disabled>
+                      <br>
+                      <label for="email"><b>ایمیل :</b></label>
+                      <input type="email" class="mb-4 text-center form-control" id="email" name="email" placeholder="لطفا ایمیل خود را وارد کنید" required value="{{info.Email}}" disabled>
+                      <br>
+                      <label for="birthday"><b>تاریخ تولد :</b></label>
+                      <input type="text" name="birthday" class="form-control text-center"  placeholder="انتخاب تاریخ" required  value={{date}} disabled>
+            
+                      <div id="resualt" class="mt-4"></div>
+            
+                      <div class="text-center">
+                          <button type="button" class="btn btn-success mt-5 send-info" id="send-info" disabled>ثبت اطلاعات</button>
+                      </div>
+                       
+                    </div>
+                  </form>
+                  {% endif %}
+
+
+                  
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+              {% if adres_bool == False %} 
+              <form action="" id="information_adress" class="form-info text-center content-item content-body text-center p-5 list-item" method="post" >
+                {% csrf_token %}
+                  
+                  <textarea name="adress" required id="adress" cols="40" rows="5" style="border-radius: 10px; padding: 10px;" placeholder="آدرس خود را وارد کنید"></textarea>
+                  <br>
+                  <input type="text" required name="vahed" placeholder="واحد" style="width: 170px; border-radius: 5px; margin-top: 10px; text-align: center;">
+                  <input type="text" required name="plak" placeholder="پلاک" style="width: 170px;  border-radius: 5px; margin-top: 10px;  text-align: center;">
+                  <br>
+                  <input type="text" required name="post-code" placeholder="کد پستی" style="width: 270px; border-radius: 5px; margin-top: 10px; text-align: center;">
+                  <br>
+                  <button type="button" class="btn btn-success mt-3 send-adress">ثبت آدرس</button>
+                  <div id="resualt_adress" class="mt-4">
+  
+  
+                  </div>
+              </form>
+              {% endif %}
+
+              {% if adres_bool == True %} 
+              <div class="form-info text-center content-item content-body text-center p-5 list-item" method="post">
+              <form action="" id="information_adress"  >
+                {% csrf_token %}
+                  
+                  <textarea name="adress" disabled required id="adress" cols="40" rows="5" style="border-radius: 10px; padding: 10px;" placeholder="آدرس خود را وارد کنید"></textarea>
+                  <br>
+                  <input type="text" disabled required name="vahed" placeholder="واحد" style="width: 170px; border-radius: 5px; margin-top: 10px; text-align: center;">
+                  <input type="text" disabled required name="plak" placeholder="پلاک" style="width: 170px;  border-radius: 5px; margin-top: 10px;  text-align: center;">
+                  <br>
+                  <input type="text" disabled required name="post-code" placeholder="کد پستی" style="width: 270px; border-radius: 5px; margin-top: 10px; text-align: center;">
+                  <br>
+                  <button type="button" disabled class="btn btn-success mt-3 send-adress">ثبت آدرس</button>
+                  <div id="resualt_adress" class="mt-4">
+  
+  
+                  </div>
+              </form>
+
+              <div class="my-addres text-right">
+                <h4>آدرس من :</h4>
+                <br>
+                <h5 style="line-height: 40px;">{{addres.adress}}</h5>
+              </div>
+              
+            </div>
+
+              {% endif %}
+              
+            </div>
+
+
+          </div>
+
+          
+
+
+
+
+<!-- علاقه مندی ها -->
+
+<div class="line-with-text mt-5" id="faverit">
+  <span > <h4>علاقه مندی ها</h4></span>
+  
+</div>
+
+<div class="row">
+
+  <div class="col-12 content-item content-body text-center p-5 list-item">
+    <div class="row">
+      {% for item in products %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="box" dir="rtl">
+          <a  href="/shop/product/{{ item.id }}" style="text-decoration: none;">
+            <div class="img-box" ">
+              <img style="border-radius: 15px;" src="{{ item.Img.url }}" alt="{{ item.product_name }}">
+            </div>
+            <div class="detail-box text-center" style="text-align: center;">
+              <h6 style="margin: 10px auto; color: rgb(255, 255, 255);">
+                <b> ~ {{item.product_name}} ~</b>
+              </h6>
+              
+            </div>
+            <br>
+            <div class="text-left">
+              <h6 style="justify-content: space-between; display: flex;">
+                <div>
+              <span class="badge badge-danger mr-1 mb-1">{{item.discount}}%</span>
+                </div>
+                <div>
+              <span style="color: rgb(255, 255, 255);">
+                {{item.final_price}}
+              </span>
+              <b style="color: rgb(255, 255, 255);">تومان</b> 
+              </div>
+
+              
+              </h6>
+              
+              <del class=" ml-4 pl-3 " style="color: rgb(255, 255, 255);">{{item.price}}</del>
+              </div>
+             
+              
+             
+              
+            
+           
+           
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+  
+</div>
+
+
+
+<!-- پرداختی ها -->
+<div class="line-with-text mt-5" id="pay">
+  <span > <h4>پرداختی ها</h4></span>
+  
+</div>
+
+<div class="row">
+
+  <div class="col-12 content-item content-body text-center p-5 list-item">
+
+    <div class="row">
+
+      {% for item in pay %}
+      
+      
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="boxs" dir="rtl">
+          <div  href="#" style="text-decoration: none;">
+            <div class="detail-box text-center" style="text-align: center;">
+              <h6 class="mb-3" style="margin: 10px auto; color: rgb(255, 255, 255);">
+                <b> {{item.product_name}} </b>
+              </h6>
+              
+            </div>
+            <br>
+            <div class="text-center">
+              <div>
+                <p class="text-light mr-1 mb-3" >تعداد سفارش : {{item.quantity}} عدد</p>
+              </div>
+              
+                
+              <div class="mb-3">
+                <span style="color: rgb(255, 255, 255);">
+                  {{item.total_price}}
+                </span>
+                <b style="color: rgb(255, 255, 255);">تومان</b> 
+              </div>
+
+              <div>
+                <h4 class="badge badge-danger mr-1 mb-1 p-2">کد رهگیری : {{item.ref_id}}</h4>
+              </div>
+
+              
+              </h6>
+              
+              
+              </div>
+             
+              
+             
+              
+            
+           
+           
+          </div>
+        </div>
+      </div>
+      {% endfor%}
+
+    </div>
+
+
+
+  </div>
+  
+</div>
+
+
+
+<!-- ارتباط با مدیریت -->
+<div class="line-with-text mt-5" id="manage">
+  <span > <h4>ارتباط با مدیریت</h4></span>
+  
+</div>
+
+<div class="row">
+
+  <div class="col-12 content-item content-body text-center p-5 list-item">
+    <div style="margin: 0 auto; max-width: 600px;">
+      <form action="" id="form-message">
+        {% csrf_token %}
+        <input type="text" class="inputs p-3" name="title-message" placeholder="موضوع" >
+        <textarea  class="inputs p-3" id="input_message" name="text-message" placeholder="متن" ></textarea>
+
+        <div id="resualt-message" style="background-color: transparent; margin: 20px; color: rgb(3, 3, 76) ;" >
+
+
+        </div>
+
+        <button type="button" class="btn mt-3 btn_send" id="btn-send" > ارسال پیام </button>
+
+      </form>
+    </div>
+    
+
+  </div>
+  
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+ 
+{% endblock %}
+
+{% block script %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/persian-date/dist/persian-date.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mds92/persian-datepicker/dist/js/persian-datepicker.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/persian-date@1.2.0/dist/persian-date.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/persian-datepicker@1.2.0/dist/js/persian-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'js/panel.js' %}"></script>  
+    <script>
+        $('#time').persianDatepicker({
+            calendar: {
+                persian: {
+                    enabled: true,
+                    locale: 'fa',
+                }
+            },
+            format: 'YYYY-MM-DD',
+            autoClose: true,
+    });
+    </script>
+
+
+{% endblock %}
+
+
+
+

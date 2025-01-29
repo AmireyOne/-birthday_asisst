@@ -1,0 +1,97 @@
+.navbars{
+    background:linear-gradient(90deg , #FF3B3F , #e20b6c)
+   
+}
+.optionss{
+    color: white;
+}
+
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/A-Mosalas.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'MyFontsc';
+    src: url('fonts/SOGAND.ttf') format('ttf');
+}
+
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); -webkit-transform: scale(1.1); -moz-transform: scale(1.1); -ms-transform: scale(1.1); -o-transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+
+.logo-nav{
+    margin-top:  10px;
+    font-family: 'MyFont';
+    font-size:x-large;
+    color: white;
+    text-shadow: 2px 5px 10px  rgb(0, 0, 0 , 0.9);
+    animation: pulse 5s infinite;
+    -webkit-animation: pulse 5s infinite;
+}
+.img-brand{
+    animation: pulse 5s infinite;
+    -webkit-animation: pulse 5s infinite;
+    margin-bottom: 7px;
+}
+.login_register_icon{
+    width: 35px; 
+    height: 35px;
+    margin-left: 20px;
+    
+}
+.body-main{
+    background-color: #FF3B3F;
+}
+/* تنظیمات منوی کشویی */
+
+.offcanvas-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -250px;
+    width: 250px;
+    background-color: #ee4a78; /* پس‌زمینه زرد */
+    z-index: 1050;
+    transition: right 0.3s ease;
+    padding-top: 60px;
+  }
+  
+  .offcanvas-menu.show {
+    right: 0;
+  }
+  
+  .offcanvas-menu .nav-link {
+    color: black !important; /* رنگ مشکی برای لینک‌های منوی کشویی */    
+    text-decoration: none;
+    font-family: 'MyFontsc';
+    
+  }
+  
+  .navbar-toggler {
+    border: none; /* حذف حاشیه اطراف دکمه همبرگری */
+  }
+  
+  /* مخفی کردن دکمه همبرگری در حالت دسکتاپ */
+  @media (min-width: 576px) {
+    .navbar-toggler {
+      display: none;
+    }
+  }
+  
+  /* مخفی کردن منوی اصلی در حالت موبایل */
+  @media (max-width: 576px) {
+    .navbar-nav {
+      text-align: right;
+
+    }
+  }
+
+
+
+
+
